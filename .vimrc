@@ -1,0 +1,275 @@
+""" .vimrc """
+
+""" Vundle """
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" YouCompleteMe
+"Plugin 'Valloric/YouCompleteMe'
+
+" NERDTree
+Plugin 'scrooloose/nerdtree'
+
+" vim-flake8 - PEP8 for python files
+Plugin 'nvie/vim-flake8'
+
+" Vim Markdown Preview
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
+" Plugin for Pug
+Plugin 'digitaltoad/vim-pug'
+
+" Plugin for LaTeX support
+Plugin 'lervag/vimtex'
+
+" Plugin for Javascript
+Plugin 'pangloss/vim-javascript'
+
+" Plugin for surround.vim
+Plugin 'tpope/vim-surround'
+
+" Plugin for .editorconfig files
+Plugin 'editorconfig/editorconfig-vim'
+
+" Plugin for DOT graphing
+Plugin 'wannesm/wmgraphviz.vim'
+
+" Plugin for ALE
+Plugin 'dense-analysis/ale'
+
+" Plugin for Deoplete + deps
+Plugin 'shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+
+" Plugin for enabling Jedi with Deoplete
+Plugin 'deoplete-plugins/deoplete-jedi'
+
+" Plugin for indentLine, puts bars on indentation
+Plugin 'Yggdroot/indentLine'
+
+" Plugin for Jenkinsfile syntax highlighting
+Plugin 'martinda/Jenkinsfile-vim-syntax'
+
+" Plugin TypeScript syntax highlighting
+Plugin 'leafgarland/typescript-vim'
+
+" Plugin TSX syntax highlighting
+"Plugin 'peitalin/vim-jsx-typescript'  " Did not work as intended
+Plugin 'maxmellon/vim-jsx-pretty'
+
+" Plugin syntax highlighting for GraphQL
+Plugin 'jparise/vim-graphql'
+
+" Plugin git wrapper - fugitive
+Plugin 'tpope/vim-fugitive.git'
+
+" Plugin for color highlighting in Vim
+Plugin 'ap/vim-css-color'
+
+" Plugin for Vim Airline
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+
+" Plugin for fzf integration with vim
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+
+" Plugin for todo.txt
+Plugin 'freitass/todo.txt-vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+""" Settings """
+
+""" Enables syntax and 256 colors in vim
+syntax enable
+set t_Co=256
+
+""" Set encoding
+set encoding=utf-8
+
+""" Save folds and reload them after use
+"au BufWinLeave * mview
+"au BufWinEnter * silent loadview
+
+""" Make tabs 4 spaces
+set expandtab 
+set tabstop=4
+set shiftwidth=4
+
+""" In Makefiles we need to use tab characters per syntax
+autocmd FileType make set noexpandtab
+
+""" Indentation
+set autoindent
+set smartindent
+
+""" Set line numbers
+set number
+
+""" (Cannot recall)
+set backspace=2
+
+""" Display row and column numbers
+set ruler
+
+""" Set Vim PATH to working directory (enables finding files)
+set path=$PWD/**
+
+""" Enable window split movement with mouse
+set mouse=a
+
+""" Highlight search text
+set hlsearch
+
+
+""" Visual customization """
+
+""" Minimalize vertical split bar
+highlight VertSplit cterm=none
+
+
+""" Custom mappings """
+let mapleader = ' '
+let maplocalleader = ' '
+
+command! W write
+imap jj <Esc>
+map _ :term<CR>
+nmap ö (
+nmap Ö {
+nmap ä )
+nmap Ä }
+vmap ö (
+vmap Ö {
+vmap ä )
+vmap Ä }
+nmap <leader>g :ALEGoToDefinition<CR>
+nmap <leader>r :ALEFindReferences<CR>
+nmap <silent> <leader>s :split<CR>
+nmap <silent> <leader>v :vsplit<CR>
+nmap <silent> <leader>q :q<CR>
+nmap <silent> <leader>Q :qa<CR>
+nmap <silent> <leader>w :w<CR>
+nmap <silent> <leader>c :noh<CR>
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+nmap <leader>f :GFiles<CR>
+nmap <leader>F :Files<CR>
+nmap <leader>B :Buffers<CR>
+nmap <leader>G :GGrep<CR>
+nmap <leader>k <Plug>(ale_previous_wrap)
+nmap <leader>j <Plug>(ale_next_wrap)
+nmap <silent> <leader>n :bn<CR>
+nmap <silent> <leader>b :bp<CR>
+nmap <leader>t 1<C-W>w
+
+
+""" Configuration """
+
+""" Vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='mupdf'
+let g:vimtex_quickfix_mode=0
+"set conceallevel=1
+"let g:tex_conceal='abdmg'
+
+""" Configure NERDTree
+" Set NERDTree to open when vim is opened
+"autocmd vimenter * NERDTree
+" Toggle NERDTree open or close with Ctrl+n
+map <C-n> :NERDTreeToggle<CR>
+" Close vim if NERDTree is the only window open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+""" Vim Markdown Preview
+" Set browser to Firefox
+let vim_markdown_preview_browser='firefox'
+" Using grip, so this has to be enabled
+let vim_markdown_preview_github=1
+
+""" NOT ACTIVELY IN USE
+""" YouCompleteMe
+"let g:ycm_global_ycm_extra_conf = '/home/cookie/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+" Close YouCompleteMe preview after insertion
+"let g:ycm_autoclose_preview_window_after_completion=1
+
+""" WM Graphviz
+let g:WMGraphviz_viewer='mupdf'
+
+""" ALE
+" Use ALE and also some plugin 'foobar' as completion sources for all code.
+call deoplete#custom#option('sources', {
+\ '_': ['ale', 'jedi'],
+\})
+" Let ALE use local .prettierc config
+let g:ale_javascript_prettier_use_local_config = 1
+
+""" Deoplete
+" Set Python3 paths for Deoplete (+ jedi)
+let g:python3_host_prog = '/usr/bin/python3'
+let g:deoplete#sources#jedi#python_path = '/usr/bin/python3'
+" Enable Deoplete on startup
+let g:deoplete#enable_at_startup = 1
+" Enable <TAB> completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" Exists preview automatically on completion
+"autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+""" IndentLine
+" Enables custom colorscheme color
+"let g:indentLine_setColors = 0
+" Indent character
+let g:indentLine_char = '¦'
+" Puts each bar on level of indentation
+"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+" Concealment
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+"let g:indentLine_setConceal = 0
+
+""" Airline
+let g:airline_theme='base16'
+
+""" FZF
+" Command for git grep
+" - fzf#vim#grep(command, with_column, [options], [fullscreen])
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+
+
+""" MUST BE LAST
+""" Rules for having custom .vimrc files in folders
+set exrc
+set secure
