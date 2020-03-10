@@ -1,0 +1,31 @@
+#!/bin/bash -e
+
+# Taken from the following guide (2020-03-11) [with small touchups]:
+#   https://www.atlassian.com/git/tutorials/dotfiles
+
+REPO=''
+GIT_DIR="$HOME/.files"
+GITIGNORE="$HOME/.files-ignore"
+BACKUP='.files-backup'
+
+git clone --bare "$REPO" "$GIT_DIR"
+
+function dotfiles {
+   /usr/bin/git --git-dir="$GIT_DIR" --work-tree="$HOME" "$@"
+}
+
+mkdir -p "$BACKUP"
+
+dotfiles checkout
+if [ $? = 0 ]; then
+  echo "Checked out dotfiles.";
+else
+    echo "Backing up pre-existing dot files.";
+    dotfiles checkout 2>&1 | grep -E "\s+\." | awk {'print $1'} | xargs -I{} mv {} "$BACKUP"/{}
+fi;
+
+dotfiles checkout
+dotfiles config status.showUntrackedFiles no
+
+dotfiles config core.excludesfile "$GITIGNORE"
+echo "$HOME/$GIT_DIR" >> "$GITIGNORE"
