@@ -169,13 +169,15 @@ vmap ö (
 vmap Ö {
 vmap ä )
 vmap Ä }
-nmap <leader>g :ALEGoToDefinition<CR>
-nmap <leader>r :ALEFindReferences<CR>
+nmap <leader>ag :ALEGoToDefinition<CR>
+nmap <leader>ar :ALEFindReferences<CR>
+nmap <leader>at :ALEToggle<CR>
 nmap <silent> <leader>s :split<CR>
 nmap <silent> <leader>v :vsplit<CR>
 nmap <silent> <leader>q :q<CR>
 nmap <silent> <leader>Q :qa<CR>
 nmap <silent> <leader>w :w<CR>
+nmap <silent> <leader>x :x<CR>
 nmap <silent> <leader>c :noh<CR>
 map <C-h> <C-W>h
 map <C-l> <C-W>l
@@ -190,6 +192,20 @@ nmap <leader>j <Plug>(ale_next_wrap)
 nmap <silent> <leader>n :bn<CR>
 nmap <silent> <leader>b :bp<CR>
 nmap <leader>t 1<C-W>w
+
+
+""" Custom functions """
+
+" https://gist.github.com/juanpabloaj/1239808
+function! ToggleNumberDisplay()
+    if &nu == &rnu
+        setl nornu
+    else
+        setl rnu
+    endif
+endfunction
+
+nnoremap <expr> <leader>0 ToggleNumberDisplay()
 
 
 """ Configuration """
