@@ -3,7 +3,7 @@
 # Taken from the following guide (2020-03-11) [with small touchups]:
 #   https://www.atlassian.com/git/tutorials/dotfiles
 
-REPO=''
+REPO='https://github.com/c00k133/dotfiles'
 GIT_DIR="$HOME/.files"
 GITIGNORE="$HOME/.files-ignore"
 BACKUP='.files-backup'
