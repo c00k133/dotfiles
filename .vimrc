@@ -197,6 +197,14 @@ function! ToggleNumberDisplay()
     endif
 endfunction
 
+function! ToggleVirtualEdit()
+    if &ve == 'all'
+        setl virtualedit=
+    else
+        setl virtualedit=all
+    endif
+endfunction
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""                             Custom mappings                         """""
@@ -204,6 +212,7 @@ endfunction
 
 " Function mappings
 nnoremap <expr> <leader>0 ToggleNumberDisplay()
+nnoremap <expr> <leader>e ToggleVirtualEdit()
 
 " Global custom mappings
 imap jj <Esc>
