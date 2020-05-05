@@ -1,6 +1,26 @@
-""" .vimrc """
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""                     _                                               """""
+"""""                    (_)                                              """""
+"""""              __   ___ _ __ ___  _ __ ___                            """""
+"""""              \ \ / / | '_ ` _ \| '__/ __|                           """""
+"""""               \ V /| | | | | | | | | (__                            """""
+"""""              (_)_/ |_|_| |_| |_|_|  \___|                           """""
+"""""                                                                     """""
+"""""               ____  ____  ____  _  __ _ _____ _____                 """""
+"""""              /   _\/  _ \/  _ \/ |/ // \\__  \\__  \                """""
+"""""              |  /  | / \|| / \||   / | |  /  |  /  |                """""
+"""""              |  \__| \_/|| \_/||   \ | | _\  | _\  |                """""
+"""""              \____/\____/\____/\_|\_\\_//____//____/                """""
+"""""                                                                     """""
+"""""                                                                     """""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""" Vundle """
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""                                 Vundle                              """""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -104,7 +124,9 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
-""" Settings """
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""                                Settings                             """""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """ Enables syntax and 256 colors in vim
 syntax enable
@@ -148,30 +170,68 @@ set mouse=a
 set hlsearch
 
 
-""" Visual customization """
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""                          Visual customization                       """""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""" Minimalize vertical split bar
+""" Minimize vertical split bar
 highlight VertSplit cterm=none
 
 
-""" Custom mappings """
-let mapleader = ' '
-let maplocalleader = ' '
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""                             Custom commands                         """""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! W write
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""                            Custom functions                         """""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" https://gist.github.com/juanpabloaj/1239808
+function! ToggleNumberDisplay()
+    if &nu == &rnu
+        setl nornu
+    else
+        setl rnu
+    endif
+endfunction
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""                             Custom mappings                         """""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Function mappings
+nnoremap <expr> <leader>0 ToggleNumberDisplay()
+
+" Global custom mappings
 imap jj <Esc>
+
 map _ :term<CR>
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+
 nmap ö (
 nmap Ö {
 nmap ä )
 nmap Ä }
+
 vmap ö (
 vmap Ö {
 vmap ä )
 vmap Ä }
+
+" Leader mappings
+let mapleader = ' '
+let maplocalleader = ' '
+
 nmap <leader>ag :ALEGoToDefinition<CR>
 nmap <leader>ar :ALEFindReferences<CR>
 nmap <leader>at :ALEToggle<CR>
+nmap <leader>ah :ALEHover<CR>
 nmap <silent> <leader>s :split<CR>
 nmap <silent> <leader>v :vsplit<CR>
 nmap <silent> <leader>q :q<CR>
@@ -179,10 +239,6 @@ nmap <silent> <leader>Q :qa<CR>
 nmap <silent> <leader>w :w<CR>
 nmap <silent> <leader>x :x<CR>
 nmap <silent> <leader>c :noh<CR>
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-map <C-j> <C-W>j
-map <C-k> <C-W>k
 nmap <leader>f :GFiles<CR>
 nmap <leader>F :Files<CR>
 nmap <leader>B :Buffers<CR>
@@ -194,21 +250,9 @@ nmap <silent> <leader>b :bp<CR>
 nmap <leader>t 1<C-W>w
 
 
-""" Custom functions """
-
-" https://gist.github.com/juanpabloaj/1239808
-function! ToggleNumberDisplay()
-    if &nu == &rnu
-        setl nornu
-    else
-        setl rnu
-    endif
-endfunction
-
-nnoremap <expr> <leader>0 ToggleNumberDisplay()
-
-
-""" Configuration """
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""                              Configuration                          """""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """ Vimtex
 let g:tex_flavor='latex'
@@ -249,6 +293,7 @@ call deoplete#custom#option('sources', {
 \})
 " Let ALE use local .prettierc config
 let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_linters = {'clojure': ['clj-kondo']}
 
 """ Deoplete
 " Set Python3 paths for Deoplete (+ jedi)
@@ -285,7 +330,9 @@ command! -bang -nargs=* GGrep
   \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
 
 
-""" MUST BE LAST
-""" Rules for having custom .vimrc files in folders
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""                              MUST BE LAST                           """""
+"""""             Rules for having custom .vimrc files in folders         """""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set exrc
 set secure
