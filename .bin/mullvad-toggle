@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$(mullvad status)" = 'Tunnel status: Disconnected' ]; then
+    mullvad block-when-disconnected set on &>/dev/null
+    mullvad connect &>/dev/null
+
+    echo "Mullvad on"
+else
+    mullvad block-when-disconnected set off &>/dev/null
+    mullvad disconnect &>/dev/null
+
+    echo "Mullvad off"
+fi
