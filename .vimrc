@@ -1,11 +1,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""                     _                                               """""
-"""""                    (_)                                              """""
-"""""              __   ___ _ __ ___  _ __ ___                            """""
-"""""              \ \ / / | '_ ` _ \| '__/ __|                           """""
-"""""               \ V /| | | | | | | | | (__                            """""
-"""""              (_)_/ |_|_| |_| |_|_|  \___|                           """""
+"""""                           _                                         """""
+"""""                          (_)                                        """""
+"""""                    __   ___ _ __ ___  _ __ ___                      """""
+"""""                    \ \ / / | '_ ` _ \| '__/ __|                     """""
+"""""                     \ V /| | | | | | | | | (__                      """""
+"""""                    (_)_/ |_|_| |_| |_|_|  \___|                     """""
 """""                                                                     """""
 """""               ____  ____  ____  _  __ _ _____ _____                 """""
 """""              /   _\/  _ \/  _ \/ |/ // \\__  \\__  \                """""
@@ -55,7 +55,7 @@ Plugin 'lervag/vimtex'
 " Plugin for Javascript
 Plugin 'pangloss/vim-javascript'
 
-" Plugin for surround.vim
+" Plugin for surround.vim --- Wrap text selection with anything
 Plugin 'tpope/vim-surround'
 
 " Plugin for .editorconfig files
@@ -107,6 +107,9 @@ Plugin 'junegunn/fzf.vim'
 
 " Plugin for todo.txt
 Plugin 'freitass/todo.txt-vim'
+
+"" Plugin for vim-multiple-cursors --- multiple cursors in one edit
+"Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -216,31 +219,31 @@ nnoremap <expr> <leader>e ToggleVirtualEdit()
 
 " Global custom mappings
 imap jj <Esc>
-
 map _ :term<CR>
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 map <C-j> <C-W>j
 map <C-k> <C-W>k
-
-nmap ö (
-nmap Ö {
-nmap ä )
-nmap Ä }
-
-vmap ö (
-vmap Ö {
-vmap ä )
-vmap Ä }
+nmap Ö (
+nmap ö {
+nmap Ä )
+nmap ä }
+vmap Ö (
+vmap ö {
+vmap Ä )
+vmap ä }
 
 " Leader mappings
 let mapleader = ' '
 let maplocalleader = ' '
-
 nmap <leader>ag :ALEGoToDefinition<CR>
 nmap <leader>ar :ALEFindReferences<CR>
 nmap <leader>at :ALEToggle<CR>
 nmap <leader>ah :ALEHover<CR>
+nmap <leader>ad :ALEDetail<CR>
+nmap <leader>gd :Gdiffsplit<CR>
+nmap <leader>ghd :Ghdiffsplit<CR>
+nmap <leader>gvd :Gvdiffsplit<CR>
 nmap <silent> <leader>s :split<CR>
 nmap <silent> <leader>v :vsplit<CR>
 nmap <silent> <leader>q :q<CR>
@@ -300,6 +303,10 @@ let g:WMGraphviz_viewer='mupdf'
 call deoplete#custom#option('sources', {
 \ '_': ['ale', 'jedi'],
 \})
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
 " Let ALE use local .prettierc config
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_linters = {'clojure': ['clj-kondo']}
@@ -337,6 +344,20 @@ command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+
+""" Vim Multiple Cursors
+let g:multi_cursor_use_default_mapping=0
+
+"" Default mapping
+"let g:multi_cursor_start_word_key      = '<C-m>'
+"let g:multi_cursor_select_all_word_key = '<A-n>'
+"let g:multi_cursor_start_key           = 'g<C-n>'
+"let g:multi_cursor_select_all_key      = 'g<A-n>'
+"let g:multi_cursor_next_key            = '<C-m>'
+"let g:multi_cursor_prev_key            = '<C-p>'
+"let g:multi_cursor_skip_key            = '<C-x>'
+""let g:multi_cursor_quit_key            = '<Esc>'
+"let g:multi_cursor_quit_key            = 'jj'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
