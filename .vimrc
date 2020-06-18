@@ -111,6 +111,9 @@ Plugin 'freitass/todo.txt-vim'
 "" Plugin for vim-multiple-cursors --- multiple cursors in one edit
 "Plugin 'terryma/vim-multiple-cursors'
 
+" Plugin for ansible files
+Plugin 'pearofducks/ansible-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -309,7 +312,10 @@ let g:ale_fixers = {
 \}
 " Let ALE use local .prettierc config
 let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_linters = {'clojure': ['clj-kondo']}
+let g:ale_linters = {
+\   'clojure': ['clj-kondo'],
+\   'ansible': ['ansible-lint'],
+\}
 
 """ Deoplete
 " Set Python3 paths for Deoplete (+ jedi)
