@@ -1,11 +1,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""                           _                                         """""
-"""""                          (_)                                        """""
-"""""                    __   ___ _ __ ___  _ __ ___                      """""
-"""""                    \ \ / / | '_ ` _ \| '__/ __|                     """""
-"""""                     \ V /| | | | | | | | | (__                      """""
-"""""                    (_)_/ |_|_| |_| |_|_|  \___|                     """""
+"""""                     _                                               """""
+"""""                    (_)                                              """""
+"""""              __   ___ _ __ ___  _ __ ___                            """""
+"""""              \ \ / / | '_ ` _ \| '__/ __|                           """""
+"""""               \ V /| | | | | | | | | (__                            """""
+"""""              (_)_/ |_|_| |_| |_|_|  \___|                           """""
 """""                                                                     """""
 """""               ____  ____  ____  _  __ _ _____ _____                 """""
 """""              /   _\/  _ \/  _ \/ |/ // \\__  \\__  \                """""
@@ -55,7 +55,7 @@ Plugin 'lervag/vimtex'
 " Plugin for Javascript
 Plugin 'pangloss/vim-javascript'
 
-" Plugin for surround.vim --- Wrap text selection with anything
+" Plugin for surround.vim
 Plugin 'tpope/vim-surround'
 
 " Plugin for .editorconfig files
@@ -98,8 +98,8 @@ Plugin 'tpope/vim-fugitive.git'
 Plugin 'ap/vim-css-color'
 
 " Plugin for Vim Airline
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Plugin for fzf integration with vim
 Plugin 'junegunn/fzf'
@@ -113,6 +113,8 @@ Plugin 'freitass/todo.txt-vim'
 
 " Plugin for ansible files
 Plugin 'pearofducks/ansible-vim'
+" Plugin for Kotlin syntax highlighting
+Plugin 'udalov/kotlin-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -211,6 +213,18 @@ function! ToggleVirtualEdit()
     endif
 endfunction
 
+" https://vim.fandom.com/wiki/Highlight_all_search_pattern_matches
+let g:highlighting = 0
+function! Highlighting()
+  if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
+    let g:highlighting = 0
+    return ":silent nohlsearch\<CR>"
+  endif
+  let @/ = '\<'.expand('<cword>').'\>'
+  let g:highlighting = 1
+  return ":silent set hlsearch\<CR>"
+endfunction
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""                             Custom mappings                         """""
@@ -222,15 +236,18 @@ nnoremap <expr> <leader>e ToggleVirtualEdit()
 
 " Global custom mappings
 imap jj <Esc>
-map _ :term<CR>
+
+"map _ :term<CR>
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 map <C-j> <C-W>j
 map <C-k> <C-W>k
+
 nmap Ö (
 nmap ö {
 nmap Ä )
 nmap ä }
+
 vmap Ö (
 vmap ö {
 vmap Ä )
@@ -239,6 +256,7 @@ vmap ä }
 " Leader mappings
 let mapleader = ' '
 let maplocalleader = ' '
+
 nmap <leader>ag :ALEGoToDefinition<CR>
 nmap <leader>ar :ALEFindReferences<CR>
 nmap <leader>at :ALEToggle<CR>
@@ -247,6 +265,7 @@ nmap <leader>ad :ALEDetail<CR>
 nmap <leader>gd :Gdiffsplit<CR>
 nmap <leader>ghd :Ghdiffsplit<CR>
 nmap <leader>gvd :Gvdiffsplit<CR>
+nmap <leader>af :ALEFix<CR>
 nmap <silent> <leader>s :split<CR>
 nmap <silent> <leader>v :vsplit<CR>
 nmap <silent> <leader>q :q<CR>
@@ -263,6 +282,7 @@ nmap <leader>j <Plug>(ale_next_wrap)
 nmap <silent> <leader>n :bn<CR>
 nmap <silent> <leader>b :bp<CR>
 nmap <leader>t 1<C-W>w
+nnoremap <silent> <expr> <leader>h Highlighting()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -302,20 +322,11 @@ let vim_markdown_preview_github=1
 let g:WMGraphviz_viewer='mupdf'
 
 """ ALE
+let g:ale_fix_on_save = 0
 " Use ALE and also some plugin 'foobar' as completion sources for all code.
 call deoplete#custom#option('sources', {
 \ '_': ['ale', 'jedi'],
 \})
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'css': ['prettier'],
-\}
-" Let ALE use local .prettierc config
-let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_linters = {
-\   'clojure': ['clj-kondo'],
-\   'ansible': ['ansible-lint'],
-\}
 
 """ Deoplete
 " Set Python3 paths for Deoplete (+ jedi)
@@ -342,6 +353,12 @@ let g:indentLine_conceallevel = 2
 
 """ Airline
 let g:airline_theme='base16'
+"let g:airline#extensions#branch#displayed_head_limit = 10
+let g:airline#extensions#branch#format = 1
+let g:airline#extensions#nerdtree_status = 0
+let g:airline#extensions#default#section_truncate_width = {
+\ 'b': 120,
+\ }
 
 """ FZF
 " Command for git grep
