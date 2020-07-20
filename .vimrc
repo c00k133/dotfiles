@@ -284,6 +284,13 @@ nmap <silent> <leader>b :bp<CR>
 nmap <leader>t 1<C-W>w
 nnoremap <silent> <expr> <leader>h Highlighting()
 
+" Plugin mappings
+" https://stackoverflow.com/a/52615863
+inoremap <silent><expr> <Tab>
+    \ pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent><expr> <S-Tab>
+    \ pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""                              Configuration                          """""
