@@ -213,6 +213,14 @@ function! ToggleVirtualEdit()
     endif
 endfunction
 
+function! ToggleWrap()
+    if &wrap == 1
+        setl nowrap
+    else
+        setl wrap
+    endif
+endfunction
+
 " https://vim.fandom.com/wiki/Highlight_all_search_pattern_matches
 let g:highlighting = 0
 function! Highlighting()
@@ -283,6 +291,7 @@ nnoremap <silent> <expr> <leader>h Highlighting()
 " Function mappings
 nnoremap <expr> <leader>0 ToggleNumberDisplay()
 nnoremap <expr> <leader>e ToggleVirtualEdit()
+nnoremap <expr> <leader>9 ToggleWrap()
 
 " Plugin mappings
 " https://stackoverflow.com/a/52615863
