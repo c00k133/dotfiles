@@ -230,10 +230,6 @@ endfunction
 """""                             Custom mappings                         """""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Function mappings
-nnoremap <expr> <leader>0 ToggleNumberDisplay()
-nnoremap <expr> <leader>e ToggleVirtualEdit()
-
 " Global custom mappings
 imap jj <Esc>
 
@@ -283,6 +279,10 @@ nmap <silent> <leader>n :bn<CR>
 nmap <silent> <leader>b :bp<CR>
 nmap <leader>t 1<C-W>w
 nnoremap <silent> <expr> <leader>h Highlighting()
+
+" Function mappings
+nnoremap <expr> <leader>0 ToggleNumberDisplay()
+nnoremap <expr> <leader>e ToggleVirtualEdit()
 
 " Plugin mappings
 " https://stackoverflow.com/a/52615863
