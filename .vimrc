@@ -269,6 +269,7 @@ nmap <leader>ad :ALEDetail<CR>
 nmap <leader>gd :Gdiffsplit<CR>
 nmap <leader>ghd :Ghdiffsplit<CR>
 nmap <leader>gvd :Gvdiffsplit<CR>
+nmap <leader>gb :Gblame<CR>
 nmap <leader>af :ALEFix<CR>
 nmap <silent> <leader>s :split<CR>
 nmap <silent> <leader>v :vsplit<CR>
