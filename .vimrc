@@ -382,10 +382,14 @@ let g:airline#extensions#default#section_truncate_width = {
 """ FZF
 " Command for git grep
 " - fzf#vim#grep(command, with_column, [options], [fullscreen])
+"command! -bang -nargs=* GGrep
+"  \ call fzf#vim#grep(
+"  \   'git grep --line-number '.shellescape(<q-args>), 0,
+"  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
-  \   'git grep --line-number '.shellescape(<q-args>), 0,
-  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+  \   'git grep --line-number -- '.shellescape(<q-args>), 0,
+  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
 """ Vim Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
