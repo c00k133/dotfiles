@@ -119,6 +119,9 @@ Plugin 'udalov/kotlin-vim'
 " Plugin for HashiCorp Terraform
 Plugin 'hashivim/vim-terraform'
 
+" Plugin for OpenWRT Unified Configuration Interface (uci) files
+Plugin 'cmcaine/vim-uci'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
