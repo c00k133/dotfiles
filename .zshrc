@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 VIM_PATH="/usr/local/bin/vim"
-export PATH=$HOME/bin:$VIM_PATH:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$VIM_PATH:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
