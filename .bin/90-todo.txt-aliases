@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Alias for todo.txt
+export TODOTXT_DEFAULT_ACTION="due"
+alias todo="todo.sh"
+alias t="todo.sh"
+
+# Alias for todo.txt edit action
+alias todovim="todo.sh edit"
+alias tvim="todo.sh edit"
+alias tv="todo.sh edit"
+alias tvs="todo.sh edit s"
+
+# Alias for todo backlog
+alias t-backlog="todo.sh -d \"$HOME/.todo/backlog/config\""
