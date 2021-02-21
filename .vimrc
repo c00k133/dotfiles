@@ -348,6 +348,7 @@ let g:WMGraphviz_viewer='mupdf'
 let g:ale_fix_on_save = 0
 let g:ale_set_highlights = 0
 let g:ale_completion_enabled = 1
+let g:ale_lint_on_enter = 0
 " Use ALE and also some plugin 'foobar' as completion sources for all code.
 call deoplete#custom#option('sources', {
 \ '_': ['ale', 'jedi'],
