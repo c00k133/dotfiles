@@ -122,6 +122,9 @@ Plugin 'hashivim/vim-terraform'
 " Plugin for OpenWRT Unified Configuration Interface (uci) files
 Plugin 'cmcaine/vim-uci'
 
+" Plugin for nix syntax highlighting
+Plugin 'LnL7/vim-nix'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
