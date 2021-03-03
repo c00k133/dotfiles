@@ -385,6 +385,7 @@ let g:indentLine_conceallevel = 2
 
 """ Airline
 let g:airline_theme='base16'
+let g:airline_powerline_fonts = 1
 "let g:airline#extensions#branch#displayed_head_limit = 10
 let g:airline#extensions#branch#format = 1
 let g:airline#extensions#nerdtree_status = 0
