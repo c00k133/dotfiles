@@ -40,6 +40,9 @@ Plugin 'VundleVim/Vundle.vim'
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 
+" Plugin for Git integration to NERDTree
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
 " vim-flake8 - PEP8 for python files
 Plugin 'nvie/vim-flake8'
 
