@@ -38,7 +38,7 @@ separator = |
 
 modules-left = i3
 modules-center =
-modules-right = bluetooth eth wlan backlight battery date
+modules-right = bluetooth mullvad eth wlan backlight battery date
 
 [module/i3]
 strip-wsnumbers = true
@@ -159,3 +159,8 @@ type = custom/script
 exec = ~/src/rofi-bluetooth/rofi-bluetooth --status
 interval = 1
 click-left = ~/src/rofi-bluetooth/rofi-bluetooth &
+
+[module/mullvad]
+type = custom/script
+exec = ~/.config/polybar/mullvad.sh
+interval = 1
