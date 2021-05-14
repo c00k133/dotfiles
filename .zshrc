@@ -11,21 +11,29 @@ HIST_STAMPS="mm/dd/yyyy"
 
 plugins=(
   git
-  nix-zsh-completions
-  nix-shell
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Install Nix specific plugins if Nix exists
+if which nix &>/dev/null; then
+    # https://github.com/spwhitt/nix-zsh-completions
+    plugins+=nix-zsh-completions
+    # https://github.com/chisui/zsh-nix-shell
+    # Depends on `nix-zsh-completions`
+    plugins+=nix-shell
+
+    source $ZSH/oh-my-zsh.sh
+    # https://github.com/spwhitt/nix-zsh-completions#oh-my-zsh-installation
+    # Has to be set after sourcing `$ZSH/oh-my-zsh.sh`
+    prompt_nix_shell_setup
+fi
 
 # https://nixos.wiki/wiki/Fzf
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
 fi
-
-# https://github.com/spwhitt/nix-zsh-completions#oh-my-zsh-installation
-# Has to be set after sourcing `$ZSH/oh-my-zsh.sh`
-prompt_nix_shell_setup
 
 _aliases="${HOME}/.bin/aliases"
 [[ -f ${_aliases} ]] && source "${_aliases}"
