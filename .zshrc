@@ -10,7 +10,7 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="mm/dd/yyyy"
 
 plugins=(
-  git
+    git
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -31,8 +31,8 @@ fi
 
 # https://nixos.wiki/wiki/Fzf
 if [ -n "${commands[fzf-share]}" ]; then
-  source "$(fzf-share)/key-bindings.zsh"
-  source "$(fzf-share)/completion.zsh"
+    source "$(fzf-share)/key-bindings.zsh"
+    source "$(fzf-share)/completion.zsh"
 fi
 
 _aliases="${HOME}/.bin/aliases"
