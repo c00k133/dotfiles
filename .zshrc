@@ -13,8 +13,6 @@ plugins=(
     git
 )
 
-source $ZSH/oh-my-zsh.sh
-
 # Install Nix specific plugins if Nix exists
 if which nix &>/dev/null; then
     # https://github.com/spwhitt/nix-zsh-completions
@@ -24,9 +22,12 @@ if which nix &>/dev/null; then
     plugins+=nix-shell
 
     source $ZSH/oh-my-zsh.sh
+
     # https://github.com/spwhitt/nix-zsh-completions#oh-my-zsh-installation
     # Has to be set after sourcing `$ZSH/oh-my-zsh.sh`
     prompt_nix_shell_setup
+else
+    source $ZSH/oh-my-zsh.sh
 fi
 
 # https://nixos.wiki/wiki/Fzf
