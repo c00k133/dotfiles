@@ -9,6 +9,15 @@ ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="mm/dd/yyyy"
 
+# https://nixos.wiki/wiki/Fzf
+if [ -n "${commands[fzf-share]}" ]; then
+    source "$(fzf-share)/key-bindings.zsh"
+    source "$(fzf-share)/completion.zsh"
+fi
+
+_aliases="${HOME}/.bin/aliases"
+[[ -f ${_aliases} ]] && source "${_aliases}"
+
 plugins=(
     git
 )
@@ -34,12 +43,3 @@ if which nix &>/dev/null; then
 else
     source $ZSH/oh-my-zsh.sh
 fi
-
-# https://nixos.wiki/wiki/Fzf
-if [ -n "${commands[fzf-share]}" ]; then
-    source "$(fzf-share)/key-bindings.zsh"
-    source "$(fzf-share)/completion.zsh"
-fi
-
-_aliases="${HOME}/.bin/aliases"
-[[ -f ${_aliases} ]] && source "${_aliases}"
