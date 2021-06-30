@@ -128,6 +128,9 @@ Plugin 'cmcaine/vim-uci'
 " Plugin for nix syntax highlighting
 Plugin 'LnL7/vim-nix'
 
+" Plugin for TOML syntax highlighting
+Plugin 'cespare/vim-toml'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
