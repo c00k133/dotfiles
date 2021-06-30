@@ -20,6 +20,7 @@ _aliases="${HOME}/.bin/aliases"
 
 plugins=(
     git
+    fzf-tab
 )
 
 # Install Nix specific plugins if Nix exists
