@@ -15,6 +15,7 @@ _aliases="${HOME}/.bin/aliases"
 plugins=(
     git
     fzf-tab
+    zsh-autosuggestions
 )
 
 # Install Nix specific plugins if Nix exists
