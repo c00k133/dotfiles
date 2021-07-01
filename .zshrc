@@ -10,7 +10,9 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="mm/dd/yyyy"
 
 _aliases="${HOME}/.bin/aliases"
-[[ -f ${_aliases} ]] && source "${_aliases}"
+if [[ -f ${_aliases} ]]; then
+    source "${_aliases}"
+fi
 
 plugins=(
     git
