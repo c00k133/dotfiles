@@ -30,16 +30,18 @@ if which nix &>/dev/null; then
 
     source $ZSH/oh-my-zsh.sh
 
-    if which starship &>/dev/null; then
-        export STARSHIP_CONFIG="${HOME}/.config/starship.toml"
-        eval "$(starship init zsh)"
-    else
+    if ! which starship &>/dev/null; then
         # https://github.com/spwhitt/nix-zsh-completions#oh-my-zsh-installation
         # Has to be set after sourcing `$ZSH/oh-my-zsh.sh`
         prompt_nix_shell_setup
     fi
 else
     source $ZSH/oh-my-zsh.sh
+fi
+
+if which starship &>/dev/null; then
+    export STARSHIP_CONFIG="${HOME}/.config/starship.toml"
+    eval "$(starship init zsh)"
 fi
 
 # https://nixos.wiki/wiki/Fzf
