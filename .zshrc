@@ -7,7 +7,16 @@ export VISUAL="vim"
 
 ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
-HIST_STAMPS="mm/dd/yyyy"
+
+# More on history settings:
+# - https://unix.stackexchange.com/a/273863
+HISTFILE="${HOME}/.zsh_history"
+HIST_STAMPS="mm/dd/yyyy" # default
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt SHARE_HISTORY # Share history between all sessions.
+setopt INC_APPEND_HISTORY # Write to the history file immediately, not when the shell exits.
+setopt HIST_IGNORE_ALL_DUPS # Delete old recorded entry if new entry is a duplicate.
 
 _aliases="${HOME}/.bin/aliases"
 if [[ -f ${_aliases} ]]; then
