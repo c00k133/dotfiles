@@ -1,0 +1,3 @@
+_NEURON_PATH="${HOME}/notes/neuron/"
+alias note="neuron -d ${_NEURON_PATH} new -e"
+alias notel='vim $(neuron -d ${_NEURON_PATH} search)'
