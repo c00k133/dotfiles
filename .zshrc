@@ -18,10 +18,9 @@ setopt SHARE_HISTORY # Share history between all sessions.
 setopt INC_APPEND_HISTORY # Write to the history file immediately, not when the shell exits.
 setopt HIST_IGNORE_ALL_DUPS # Delete old recorded entry if new entry is a duplicate.
 
-_aliases="${HOME}/.bin/aliases"
-if [[ -f ${_aliases} ]]; then
-    source "${_aliases}"
-fi
+for aliases_file in ${HOME}/.bin/*aliases; do
+    source "${aliases_file}"
+done
 
 plugins=(
     git
