@@ -74,11 +74,12 @@ bindsym $mod+Shift+minus move scratchpad
 
 bindsym $mod+Shift+Return exec --no-startup-id urxvt -name scratchpad
 
+bindsym $mod+t exec --no-startup-id todofi.sh
+
 bindsym $mod+n [instance="^(?!scratchpad)"] scratchpad show
 bindsym $mod+minus [instance="scratchpad"] scratchpad show
 bindsym $mod+z [class="^URxvt" instance="^(?!scratchpad)"] scratchpad show
 bindsym $mod+p [class="^KeeWeb"] scratchpad show
-bindsym $mod+t [class="^Telegram"] scratchpad show
 
 set $ws1 "1"
 set $ws2 "2"
