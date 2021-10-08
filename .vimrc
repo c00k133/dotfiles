@@ -131,6 +131,9 @@ Plugin 'LnL7/vim-nix'
 " Plugin for TOML syntax highlighting
 Plugin 'cespare/vim-toml'
 
+" Plugin for seamless interop with Tmux
+Plugin 'christoomey/vim-tmux-navigator'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -255,12 +258,6 @@ endfunction
 
 " Global custom mappings
 imap jj <Esc>
-
-"map _ :term<CR>
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-map <C-j> <C-W>j
-map <C-k> <C-W>k
 
 nmap Ö (
 nmap ö {
