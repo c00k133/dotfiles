@@ -26,6 +26,9 @@ plugins=(
     git
     fzf-tab
     zsh-autosuggestions
+
+    # Must be last
+    zsh-syntax-highlighting
 )
 
 # Install Nix specific plugins if Nix exists
