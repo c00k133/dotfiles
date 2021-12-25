@@ -13,6 +13,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 bindsym $mod+space exec rofi -show run
+bindsym $mod+z exec rofi -modi "clipboard: greenclip print" -show clipboard
 
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -78,7 +79,6 @@ bindsym $mod+t exec --no-startup-id todofi.sh
 
 bindsym $mod+n [instance="^(?!scratchpad)"] scratchpad show
 bindsym $mod+minus [instance="scratchpad"] scratchpad show
-bindsym $mod+z [class="^URxvt" instance="^(?!scratchpad)"] scratchpad show
 bindsym $mod+p [class="^KeeWeb"] scratchpad show
 
 set $ws1 "1"
