@@ -162,5 +162,5 @@ click-left = ~/src/rofi-bluetooth/rofi-bluetooth &
 
 [module/mullvad]
 type = custom/script
-exec = ~/.config/polybar/mullvad.sh
+exec = ~/.config/polybar/mullvad.sh 2>/dev/null
 interval = 1
