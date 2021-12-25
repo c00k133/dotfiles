@@ -3,9 +3,9 @@
 MULLVAD_STATUS="$(mullvad status)"
 
 if echo "$MULLVAD_STATUS" | grep --quiet 'Connected'; then
-    echo 'VPN up'
+    echo 'VPN ✓'
 elif echo "$MULLVAD_STATUS" | grep --quiet 'Connecting'; then
-    echo 'VPN connecting...'
+    echo 'VPN …'
 else
-    echo 'VPN down'
+    echo 'VPN x'
 fi
