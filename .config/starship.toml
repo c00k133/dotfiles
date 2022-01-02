@@ -11,6 +11,9 @@ error_symbol = "[✗](bold red) "
 # - https://starship.rs/presets/#bracketed-segments
 # - https://starship.rs/presets/#plain-text-symbols
 
+[battery]
+disabled = true
+
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 symbol = "  "
