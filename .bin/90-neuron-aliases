@@ -2,4 +2,4 @@ _NEURON_PATH="${HOME}/notes/neuron/"
 alias note="neuron -d ${_NEURON_PATH} new -e"
 alias notel='vim $(neuron -d ${_NEURON_PATH} search)'
 _NEURON_TMUX_SESSION="neuron"
-alias notes='tmux new-session -A -s ${_NEURON_TMUX_SESSION} -c ${_NEURON_PATH} "vim $(neuron -d ${_NEURON_PATH} search)"'
+alias notes='tmux new-session -A -s ${_NEURON_TMUX_SESSION} -c ${_NEURON_PATH} -n neuron "vim $(neuron -d ${_NEURON_PATH} search)"'
