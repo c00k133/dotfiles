@@ -41,7 +41,7 @@ separator = |
 
 modules-left = i3
 modules-center =
-modules-right = bluetooth mullvad eth wlan backlight battery date
+modules-right = bluetooth vpn eth wlan backlight battery date
 
 [module/i3]
 strip-wsnumbers = true
@@ -163,7 +163,12 @@ exec = ROFI_BT_SHORT_STATUS=true ~/src/rofi-bluetooth/rofi-bluetooth --status
 interval = 1
 click-left = ~/src/rofi-bluetooth/rofi-bluetooth &
 
-[module/mullvad]
+[module/vpn]
 type = custom/script
-exec = ~/.config/polybar/mullvad.sh 2>/dev/null
-interval = 1
+exec = COLOR_CONNECTED=$(xrdb -get color2) COLOR_CONNECTING=$(xrdb -get color3) COLOR_DISCONNECTED=$(xrdb -get color1) $HOME/src/polybar-vpn-controller/vpn_module.sh --no-geoip
+click-left = $HOME/src/polybar-vpn-controller/vpn_module.sh --toggle-connection &
+click-right = $HOME/src/polybar-vpn-controller/vpn_module.sh --location-menu &
+click-middle = $HOME/src/polybar-vpn-controller/vpn_module.sh --ip-address &
+interval = 5
+format = <label>
+format-background = ${colors.background}
