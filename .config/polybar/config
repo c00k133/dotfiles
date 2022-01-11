@@ -132,8 +132,8 @@ full-at = 98
 format-padding = 1
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.color1}
-format-charging-foreground = ${colors.color1}
+format-charging-underline = ${colors.color2}
+format-charging-foreground = ${colors.color2}
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = 
