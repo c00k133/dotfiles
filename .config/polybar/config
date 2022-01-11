@@ -159,7 +159,7 @@ enable-scroll = true
 
 [module/bluetooth]
 type = custom/script
-exec = ROFI_BT_SHORT_STATUS=true ~/src/rofi-bluetooth/rofi-bluetooth --status
+exec = ROFI_BT_SHORT_STATUS=true COLOR_ON=$(xrdb -get color2) COLOR_OFF=$(xrdb -get color1) ~/src/rofi-bluetooth/rofi-bluetooth --status
 interval = 1
 click-left = ~/src/rofi-bluetooth/rofi-bluetooth &
 
