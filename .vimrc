@@ -46,8 +46,6 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " vim-flake8 - PEP8 for python files
 Plugin 'nvie/vim-flake8'
 
-" Vim Markdown Preview
-Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " Plugin for Pug
 Plugin 'digitaltoad/vim-pug'
@@ -333,11 +331,6 @@ map <C-n> :NERDTreeToggle<CR>
 " Close vim if NERDTree is the only window open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-""" Vim Markdown Preview
-" Set browser to Firefox
-let vim_markdown_preview_browser='firefox'
-" Using grip, so this has to be enabled
-let vim_markdown_preview_github=1
 
 """ NOT ACTIVELY IN USE
 """ YouCompleteMe
