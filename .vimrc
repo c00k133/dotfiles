@@ -86,7 +86,7 @@ Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'leafgarland/typescript-vim'
 
 " Plugin TSX syntax highlighting
-"Plugin 'peitalin/vim-jsx-typescript'  " Did not work as intended
+Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'maxmellon/vim-jsx-pretty'
 
 " Plugin syntax highlighting for GraphQL
@@ -131,6 +131,9 @@ Plugin 'cespare/vim-toml'
 
 " Plugin for seamless interop with Tmux
 Plugin 'christoomey/vim-tmux-navigator'
+
+" Plugin for Go development
+"Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -279,7 +282,7 @@ nmap <leader>ad :ALEDetail<CR>
 nmap <leader>gd :Gdiffsplit<CR>
 nmap <leader>ghd :Ghdiffsplit<CR>
 nmap <leader>gvd :Gvdiffsplit<CR>
-nmap <leader>gb :Gblame<CR>
+nmap <leader>gb :Git blame<CR>
 nmap <leader>af :ALEFix<CR>
 nmap <silent> <leader>s :split<CR>
 nmap <silent> <leader>v :vsplit<CR>
@@ -296,6 +299,7 @@ nmap <leader>k <Plug>(ale_previous_wrap)
 nmap <leader>j <Plug>(ale_next_wrap)
 nmap <silent> <leader>n :bn<CR>
 nmap <silent> <leader>b :bp<CR>
+nmap <silent> <leader>p :bp<CR>
 nmap <leader>t 1<C-W>w
 nnoremap <silent> <expr> <leader>h Highlighting()
 
@@ -349,16 +353,12 @@ let g:ale_set_highlights = 0
 let g:ale_completion_enabled = 1
 let g:ale_lint_on_enter = 0
 " Use ALE and also some plugin 'foobar' as completion sources for all code.
-call deoplete#custom#option('sources', {
-\ '_': ['ale', 'jedi'],
-\})
 
 """ Deoplete
 " Set Python3 paths for Deoplete (+ jedi)
 let g:python3_host_prog = '/usr/bin/python3'
 let g:deoplete#sources#jedi#python_path = '/usr/bin/python3'
 " Enable Deoplete on startup
-let g:deoplete#enable_at_startup = 1
 " Enable <TAB> completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Exists preview automatically on completion
@@ -367,6 +367,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 """ IndentLine
 " Enables custom colorscheme color
 "let g:indentLine_setColors = 0
+let g:indentLine_color_term = 239
 " Indent character
 let g:indentLine_char = '¦'
 " Puts each bar on level of indentation
