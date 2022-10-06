@@ -1,25 +1,16 @@
 #!/usr/bin/env bash
 
-_NEURON_PATH="${HOME}/notes/neuron/"
+_NEURON_PATH="${HOME}/notes/zettelkasten/"
 alias note="neuron -d ${_NEURON_PATH} new -e"
 alias notel='vim $(neuron -d ${_NEURON_PATH} search)'
 
-_NEURON_TMUX_SESSION='neuron-tmux'
-_NEURON_TMUX_WINDOW='neuron'
-function __attach_neuron {
-    if [ -n "$TMUX" ]; then
-        # https://superuser.com/questions/410017/how-do-i-know-current-tmux-session-name-by-running-tmux-command/410197#410197
-        if [ "$(tmux display-message -p '#S')" = "${_NEURON_TMUX_SESSION}" ]; then
-            neuron -d "${_NEURON_PATH}" search
-        else
-            if ! tmux has-session -t "${_NEURON_TMUX_SESSION}" 2>/dev/null; then
-                tmux new-session -d -s "${_NEURON_TMUX_SESSION}" -n "${_NEURON_TMUX_WINDOW}" "vim $(neuron -d ${_NEURON_PATH} search)"
-            fi
-            tmux switch-client -t "${_NEURON_TMUX_SESSION}"
-        fi
+_NEURON_TMUX_SESSION="neuron"
+function __attachNeuron() {
+    if [ "$TMUX" ]; then
+        vim --cmd "cd ${_NEURON_PATH}" "$(neuron -d ${_NEURON_PATH} search)"
     else
-        tmux new-session -A -s "${_NEURON_TMUX_SESSION}" -c "${_NEURON_PATH}" -n "${_NEURON_TMUX_WINDOW}" "vim $(neuron -d ${_NEURON_PATH} search)"
+        tmux new-session -A -s ${_NEURON_TMUX_SESSION} -c ${_NEURON_PATH} -n neuron "vim \"$(neuron -d ${_NEURON_PATH} search)\""
     fi
 }
-alias notes='__attach_neuron'
+alias notes='__attachNeuron'
 alias n='notes'
