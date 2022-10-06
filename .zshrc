@@ -55,6 +55,11 @@ if which starship &>/dev/null; then
     eval "$(starship init zsh)"
 fi
 
+# https://github.com/direnv/direnv/blob/master/docs/hook.md
+if which direnv &>/dev/null; then
+    eval "$(direnv hook zsh)"
+fi
+
 # https://nixos.wiki/wiki/Fzf
 if [ -n "${commands[fzf-share]}" ]; then
     source "$(fzf-share)/key-bindings.zsh"
