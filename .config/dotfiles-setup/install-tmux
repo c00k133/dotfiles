@@ -1,0 +1,6 @@
+#!/usr/bin/env bash -x
+
+# https://github.com/tmux-plugins/tpm#installation
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+echo "Run <leader>+I in a Tmux session to install packages."

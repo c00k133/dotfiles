@@ -1,0 +1,5 @@
+#!/usr/bin/env bash -x
+
+git clone https://github.com/VundleVim/Vundle.vim.git /Users/axelneergaard/.vim/bundle/Vundle.vim
+
+vim +PluginInstall +qall
