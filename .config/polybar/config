@@ -3,6 +3,9 @@
 ; Resources:
 ; - https://github.com/polybar/polybar/wiki/
 
+[settings]
+screenchange-reload = true
+
 [colors]
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
@@ -14,11 +17,16 @@ color4 = ${xrdb:color4}
 color5 = ${xrdb:color5}
 color6 = ${xrdb:color6}
 color7 = ${xrdb:color7}
+color10 = ${xrdb:color10}
 
 [bar/bar]
 monitor = ${env:MONITOR:}
 
 font-0 = "SauceCodePro Nerd Font Mono:pixelsize=10"
+font-1 = "icomoon-feather"
+font-2 = "Noto Emoji Nerd Font Complete Mono:pixelsize=10"
+font-3 = "DejaVu Sans Book:pixelsize=10"
+font-4 = "Noto Emoji"
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -157,10 +165,27 @@ label = %percentage%
 
 enable-scroll = true
 
+[module/external-backlight]
+type = custom/script
+exec = $HOME/.config/polybar/external-monitor.sh
+# Perhaps only use one regex for grep?
+# FIXME: calling xrandr freezes all monitors shortly.
+exec-if = xrandr --query | grep " connected" | grep --invert-match "eDP-1"
+interval = 2
+
+format = E <label>
+format-padding = 1
+
+click-left = $HOME/.config/polybar/external-monitor.sh min
+click-right = $HOME/.config/polybar/external-monitor.sh max
+# Might need a debounce...
+scroll-up = $HOME/.config/polybar/external-monitor.sh + 5
+scroll-down = $HOME/.config/polybar/external-monitor.sh - 5
+
 [module/bluetooth]
 type = custom/script
-exec = ROFI_BT_SHORT_STATUS=true COLOR_ON=$(xrdb -get color2) COLOR_OFF=$(xrdb -get color1) ~/src/rofi-bluetooth/rofi-bluetooth --status
-interval = 1
+exec = ROFI_BT_SHORT_STATUS=false COLOR_ON=$(xrdb -get color2) COLOR_OFF=$(xrdb -get color1) ~/src/rofi-bluetooth/rofi-bluetooth --status
+interval = 2
 click-left = ~/src/rofi-bluetooth/rofi-bluetooth &
 
 [module/vpn]
