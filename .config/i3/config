@@ -137,7 +137,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-set $Locker $HOME/src/lock/lock.sh
+set $Locker $HOME/.bin/lock.sh
 #exec xautolock -time 15 -locker $Locker
 bindsym $mod+Mod1+l exec --no-startup-id $Locker
 bindsym $mod+Mod1+Shift+l exec --no-startup-id "$Locker && systemctl suspend"
