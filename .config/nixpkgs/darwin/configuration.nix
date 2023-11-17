@@ -17,7 +17,6 @@
       pkgs.powerline
 
       # Development tools
-      pkgs.docker
       pkgs.terraform  # unfree: must be included in `nixpkgs.config.allowUnfreePredicate`
     ];
 
@@ -55,8 +54,11 @@
       cleanup = "uninstall";
     };
 
+    # Use casks for GUI applications
+    # - https://stackoverflow.com/a/46423275
     casks = [
       "iterm2"
+      "docker"
     ];
 
     # brews = [ "..." ];
