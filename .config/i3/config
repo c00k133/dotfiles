@@ -71,12 +71,12 @@ bindsym Shift+Print exec --no-startup-id "sleep 1 && scrot -s"
 bindsym $mod+c exec --no-startup-id firefox
 bindsym $mod+b exec --no-startup-id ~/src/rofi-bluetooth/rofi-bluetooth
 
-bindsym $mod+Shift+minus move scratchpad
-
-bindsym $mod+Shift+Return exec --no-startup-id urxvt -name scratchpad
 
 bindsym $mod+t exec --no-startup-id todofi.sh
 
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+Return exec --no-startup-id urxvt -name scratchpad
 bindsym $mod+n [instance="^(?!scratchpad)"] scratchpad show
 bindsym $mod+minus [instance="scratchpad"] scratchpad show
 bindsym $mod+p [class="^KeeWeb"] scratchpad show
