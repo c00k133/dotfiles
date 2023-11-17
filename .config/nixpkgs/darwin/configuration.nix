@@ -46,8 +46,11 @@
   system.stateVersion = 4;
 
   homebrew = {
+    # Although nix-darwin complained earlier, this is a higher level configuration.
+    # - https://daiderd.com/nix-darwin/manual/index.html
+    enable = true;
+
     onActivation = {
-      enable = true;
       autoUpdate = true;
       cleanup = "uninstall";
     };
