@@ -1,20 +1,38 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages =
-    [ pkgs.vim
+  environment = {
+    # List packages installed in system profile. To search by name, run:
+    # $ nix-env -qaP | grep wget
+    systemPackages = [
+      # General tools
+      pkgs.htop
       pkgs.tmux
+      pkgs.vim
+
+      # Terminal tools
       pkgs.fzf
       pkgs.fzf-zsh
       pkgs.starship
       pkgs.powerline
+
+      # Development tools
+      pkgs.docker
+      pkgs.terraform  # unfree: must be included in `nixpkgs.config.allowUnfreePredicate`
     ];
 
-  # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
+    # Use a custom configuration.nix location.
+    # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
+    darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
+
+    variables = {
+      "EDITOR" = "vim";
+    };
+  };
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "terraform"
+  ];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -33,9 +51,11 @@
       autoUpdate = true;
       cleanup = "uninstall";
     };
+
     casks = [
       "iterm2"
     ];
+
     # brews = [ "..." ];
     # taps = [ " " ];
   };
