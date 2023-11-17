@@ -56,6 +56,7 @@ bindsym $mod+Shift+c reload
 # Restart i3 inplace
 bindsym $mod+Shift+r restart
 
+# Sound
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
@@ -63,6 +64,7 @@ bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle
 
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 
+# Screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
