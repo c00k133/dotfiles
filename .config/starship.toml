@@ -16,7 +16,7 @@ disabled = true
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-symbol = "  "
+symbol = "☁️ "
 
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
@@ -41,7 +41,7 @@ format = '\[[$symbol($version)]($style)\]'
 
 [docker_context]
 format = '\[[$symbol$context]($style)\]'
-symbol = " "
+symbol = "🐳 "
 
 [dotnet]
 format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
@@ -62,7 +62,7 @@ format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
-symbol = " "
+symbol = " "
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style))'
@@ -105,7 +105,7 @@ symbol = " "
 
 [nix_shell]
 format = '\[[$symbol$state( \($name\))]($style)\]'
-symbol = " "
+symbol = "❄️ "
 
 [nodejs]
 format = '\[[$symbol($version)]($style)\]'
@@ -133,7 +133,7 @@ format = '\[[$symbol($version)]($style)\]'
 
 [python]
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
-symbol = " "
+symbol = "🐍 "
 
 [red]
 format = '\[[$symbol($version)]($style)\]'
@@ -173,7 +173,7 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [directory]
-read_only = " "
+read_only = "🔒"
 
 [shlvl]
-symbol = " "
+symbol = "↕️"
