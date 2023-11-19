@@ -1,0 +1,10 @@
+# Files to ignore in Git project globally.
+# - https://stackoverflow.com/a/4824199
+#
+#    ```
+#    git config --global core.excludesfile ~/.config/global-gitignore
+#    ```
+
+# Ignore vim files:
+*~
+*.sw?
