@@ -13,6 +13,8 @@
       # Terminal tools
       pkgs.fzf
       pkgs.fzf-zsh
+      pkgs.jq
+      pkgs.yq
 
       # Terminal theming
       pkgs.starship
