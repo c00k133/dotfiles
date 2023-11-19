@@ -13,6 +13,8 @@
       # Terminal tools
       pkgs.fzf
       pkgs.fzf-zsh
+
+      # Terminal theming
       pkgs.starship
       pkgs.powerline
 
