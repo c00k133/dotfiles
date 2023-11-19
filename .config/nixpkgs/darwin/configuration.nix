@@ -18,6 +18,8 @@
 
       # Development tools
       pkgs.terraform  # unfree: must be included in `nixpkgs.config.allowUnfreePredicate`
+      pkgs.aws-vault
+      pkgs.awscli2
     ];
 
     # Use a custom configuration.nix location.
