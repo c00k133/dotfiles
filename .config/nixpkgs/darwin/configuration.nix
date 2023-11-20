@@ -1,29 +1,10 @@
 { config, pkgs, lib, ... }:
 
-{
   environment = {
     # List packages installed in system profile. To search by name, run:
     # $ nix-env -qaP | grep wget
-    systemPackages = [
-      # General tools
-      pkgs.htop
-      pkgs.tmux
-      pkgs.vim
-
-      # Terminal tools
-      pkgs.fzf
-      pkgs.fzf-zsh
-      pkgs.jq
-      pkgs.yq
-
-      # Terminal theming
-      pkgs.starship
-      pkgs.powerline
-
-      # Development tools
+    systemPackages = (import ./packages.nix pkgs) ++ [
       pkgs.terraform  # unfree: must be included in `nixpkgs.config.allowUnfreePredicate`
-      pkgs.aws-vault
-      pkgs.awscli2
     ];
 
     # Use a custom configuration.nix location.
