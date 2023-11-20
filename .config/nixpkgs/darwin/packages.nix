@@ -10,6 +10,7 @@ pkgs: with pkgs; [
   jq
   yq
   ripgrep
+  ranger
 
   # Terminal theming
   starship
