@@ -15,7 +15,6 @@ pkgs: with pkgs; [
   powerline
 
   # Development tools
-  terraform  # unfree: must be included in `nixpkgs.config.allowUnfreePredicate`
   aws-vault
   awscli2
 ]

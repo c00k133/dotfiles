@@ -1,11 +1,15 @@
 { config, pkgs, lib, ... }:
 
+let
+  # unfree: must be included in `nixpkgs.config.allowUnfreePredicate`
+  unfree-packages = [
+    "terraform"
+  ];
+in {
   environment = {
     # List packages installed in system profile. To search by name, run:
     # $ nix-env -qaP | grep wget
-    systemPackages = (import ./packages.nix pkgs) ++ [
-      pkgs.terraform  # unfree: must be included in `nixpkgs.config.allowUnfreePredicate`
-    ];
+    systemPackages = (import ./packages.nix pkgs) ++ (builtins.map (p: pkgs."${p}") unfree-packages);
 
     # Use a custom configuration.nix location.
     # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
@@ -16,9 +20,8 @@
     };
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "terraform"
-  ];
+  # TODO: figure out how to configure this in a separate file
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) unfree-packages;
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
