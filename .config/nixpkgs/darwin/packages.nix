@@ -9,6 +9,7 @@ pkgs: with pkgs; [
   fzf-zsh
   jq
   yq
+  ripgrep
 
   # Terminal theming
   starship
