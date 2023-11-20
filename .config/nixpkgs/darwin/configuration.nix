@@ -12,6 +12,7 @@ in {
     # $ nix-env -qaP | grep wget
     systemPackages = (
       import ./packages.nix pkgs
+      ++ import ./python-packages.nix pkgs
       ++ unfree-packages
     );
 
