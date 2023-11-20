@@ -352,7 +352,10 @@ let g:ale_fix_on_save = 0
 let g:ale_set_highlights = 0
 let g:ale_completion_enabled = 1
 let g:ale_lint_on_enter = 0
-" Use ALE and also some plugin 'foobar' as completion sources for all code.
+let g:ale_set_signs = 1
+let g:ale_echo_cursor = 1
+" Virtualtext are seen straight in the source of the file
+let g:ale_virtualtext_cursor = 0
 
 """ Deoplete
 " Set Python3 paths for Deoplete (+ jedi)
