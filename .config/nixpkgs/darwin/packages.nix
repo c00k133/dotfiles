@@ -18,4 +18,5 @@ pkgs: with pkgs; [
   # Development tools
   aws-vault
   awscli2
+  localstack
 ]
