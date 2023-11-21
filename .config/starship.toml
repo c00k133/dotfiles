@@ -57,6 +57,11 @@ symbol = " "
 [erlang]
 format = '\[[$symbol($version)]($style)\]'
 
+[gradle]
+format = '\[[$symbol$version]($style)\]'
+symbol = "🅶 "
+version_format = "v${raw}"
+
 [gcloud]
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
