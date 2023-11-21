@@ -84,8 +84,9 @@ format = '\[[$symbol$branch]($style)\]'
 symbol = " "
 
 [java]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
+format = '\[[$symbol$version]($style)\]'
+symbol = '☕ '
+version_format = 'v${raw}'
 
 [julia]
 format = '\[[$symbol($version)]($style)\]'
