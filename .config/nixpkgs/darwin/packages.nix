@@ -20,4 +20,5 @@ pkgs: with pkgs; [
   aws-vault
   awscli2
   localstack
+  pqrs
 ]
