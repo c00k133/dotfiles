@@ -192,4 +192,4 @@ detect_folders = ['.files']
 symbol = '!'
 style = 'bold green'
 format = '\[[$symbol dotfiles]($style)\]'
-disabled = false
+disabled = true
