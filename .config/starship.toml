@@ -183,3 +183,13 @@ read_only = "🔒"
 
 [shlvl]
 symbol = "↕️"
+
+[custom.dotfiles]
+when = 'dfs diff --quiet'
+description = 'Tells whether dotfiles have changes'
+detect_files = ['.files-ignore']
+detect_folders = ['.files']
+symbol = '!'
+style = 'bold green'
+format = '\[[$symbol dotfiles]($style)\]'
+disabled = false
