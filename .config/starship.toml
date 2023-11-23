@@ -16,7 +16,7 @@ disabled = true
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-symbol = "☁️ "
+symbol = "☁️  "
 
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
