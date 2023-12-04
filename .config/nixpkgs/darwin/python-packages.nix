@@ -10,6 +10,7 @@ in
 with pkgs; [
   # Development tools
   pipenv
+  virtualenv
 
   # Python language and ecosystem
   python
