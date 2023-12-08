@@ -5,7 +5,7 @@ let b:ale_linters = [
 \ ]
 
 let b:ale_fixers = [
-\    'autopep8',
+\     'autopep8',
 \     'isort',
 \     'remove_trailing_lines',
 \     'black',
