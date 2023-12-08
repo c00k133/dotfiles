@@ -16,6 +16,7 @@ with pkgs; [
   virtualenv
 
   # Linters, fixers, and type-checkers
+  python-packages.autopep8
   python-packages.black
   python-packages.flake8
   python-packages.isort
