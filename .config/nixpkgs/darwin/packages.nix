@@ -9,6 +9,7 @@ pkgs: with pkgs; [
   fzf
   fzf-zsh
   jq
+  shellcheck
   ripgrep
   ranger
   yq
