@@ -8,17 +8,17 @@ let
   python-packages = pkgs."python${python-version}Packages";
 in
 with pkgs; [
+  # Python language and ecosystem
+  python
+
   # Development tools
   pipenv
   virtualenv
 
-  # Python language and ecosystem
-  python
-
-  # Python packages
+  # Linters, fixers, and type-checkers
   python-packages.black
-  python-packages.isort
   python-packages.flake8
-  python-packages.pylint
+  python-packages.isort
   python-packages.mypy
+  python-packages.pylint
 ]
