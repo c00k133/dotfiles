@@ -5,17 +5,17 @@ pkgs: with pkgs; [
   vim
 
   # Terminal tools
+  fd
   fzf
   fzf-zsh
   jq
-  yq
   ripgrep
   ranger
-  fd
+  yq
 
   # Terminal theming
-  starship
   powerline
+  starship
 
   # Development tools
   aws-vault
