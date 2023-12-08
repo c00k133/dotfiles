@@ -11,6 +11,7 @@ pkgs: with pkgs; [
   yq
   ripgrep
   ranger
+  fd
 
   # Terminal theming
   starship
