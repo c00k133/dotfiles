@@ -1,12 +1,12 @@
 let b:ale_linters = [
-\     'flake8',
+"\     'flake8',
+"\     'mypy',
 \     'pylint',
-\     'mypy',
 \ ]
 
 let b:ale_fixers = [
 \     'autopep8',
+\     'black',
 \     'isort',
 \     'remove_trailing_lines',
-\     'black',
 \ ]
