@@ -56,6 +56,7 @@ in {
       "docker"
       "logseq"
       "mac-mouse-fix"
+      "anki"
     ];
 
     # brews = [ "..." ];
