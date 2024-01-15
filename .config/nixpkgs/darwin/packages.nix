@@ -23,4 +23,6 @@ pkgs: with pkgs; [
   awscli2
   localstack
   pqrs
+  terragrunt
+  tgswitch
 ]

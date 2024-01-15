@@ -59,7 +59,9 @@ in {
       "anki"
     ];
 
-    # brews = [ "..." ];
+    brews = [
+      "tfenv"
+    ];
     # taps = [ " " ];
   };
 }
