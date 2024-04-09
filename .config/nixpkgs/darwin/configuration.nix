@@ -55,7 +55,6 @@ in {
       "iterm2"
       "docker"
       "logseq"
-      "mac-mouse-fix"
       "anki"
     ];
 
