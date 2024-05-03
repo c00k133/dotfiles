@@ -50,10 +50,12 @@ in {
     # Use casks for GUI applications
     # - https://stackoverflow.com/a/46423275
     casks = [
-      "iterm2"
-      "docker"
-      "logseq"
       "anki"
+      "darktable"
+      "docker"
+      "iterm2"
+      "logseq"
+      "slack-cli"
     ];
 
     brews = [
