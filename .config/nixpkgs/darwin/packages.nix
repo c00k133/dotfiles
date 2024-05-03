@@ -21,7 +21,7 @@ pkgs: with pkgs; [
   # Development tools
   aws-vault
   awscli2
-  localstack
+  # localstack  # currently fails...
   pqrs
   terragrunt
   tgswitch
