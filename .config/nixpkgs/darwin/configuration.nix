@@ -2,9 +2,7 @@
 
 let
   # unfree: must be included in `nixpkgs.config.allowUnfreePredicate`
-  unfree-package-names = [
-    "terraform"
-  ];
+  unfree-package-names = [];
   unfree-packages = builtins.map (p: pkgs."${p}") unfree-package-names;
 in {
   environment = {
@@ -59,6 +57,7 @@ in {
     ];
 
     brews = [
+      "terraform"
       "tfenv"
     ];
     # taps = [ " " ];
