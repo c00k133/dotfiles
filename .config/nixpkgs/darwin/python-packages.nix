@@ -13,6 +13,7 @@ with pkgs; [
 
   # Development tools
   pipenv
+  pyright
   virtualenv
 
   # Linters, fixers, and type-checkers
@@ -22,8 +23,4 @@ with pkgs; [
   python-packages.isort
   python-packages.mypy
   python-packages.pylint
-  # Pyright is installed as an NPM package:
-  # - https://microsoft.github.io/pyright/#/installation
-  # The community maintained Python package is unavailable for Nix.
-  nodePackages.pyright
 ]

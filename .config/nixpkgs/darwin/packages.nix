@@ -13,6 +13,8 @@ pkgs: with pkgs; [
   ripgrep
   ranger
   yq
+  gnupg
+  s3cmd
 
   # Terminal theming
   powerline
@@ -21,6 +23,7 @@ pkgs: with pkgs; [
   # Development tools
   aws-vault
   awscli2
+  duckdb
   # localstack  # currently fails...
   pqrs
   terragrunt

@@ -1,0 +1,1 @@
+alias notification="function(){ osascript -e 'tell app \"System Events\" to display dialog \"${1:-DONE}\"' }"

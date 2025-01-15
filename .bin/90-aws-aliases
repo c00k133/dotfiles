@@ -1,0 +1,2 @@
+alias aws-choose-environment="${HOME}/.bin/aws-choose-environment.sh"
+alias aws-choose-env="aws-choose-environment"
