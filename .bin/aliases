@@ -3,4 +3,4 @@ alias dfs="dotfiles"
 alias dotfiles-commit-all="dotfiles commit --all --message \"`date -Iseconds`\""
 
 alias rr="ranger"
-alias v="vim"
+alias v="nvim"

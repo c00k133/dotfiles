@@ -2,8 +2,8 @@ VIM_PATH="/usr/local/bin/vim"
 export PATH=$HOME/bin:$HOME/.local/bin:$VIM_PATH:/usr/local/bin:$PATH
 
 export ZSH=$HOME/.oh-my-zsh
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
