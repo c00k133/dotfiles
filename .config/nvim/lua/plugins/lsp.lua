@@ -19,6 +19,10 @@ return {
 
         -- CSS
         "css-lsp",
+
+        -- Ansible
+        "ansible-language-server",
+        "ansible-lint",
       })
     end,
   },
