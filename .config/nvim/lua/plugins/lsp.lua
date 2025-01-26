@@ -1,4 +1,6 @@
 return {
+  -- Mason
+  -- Registry: https://mason-registry.dev/registry/list
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
