@@ -33,4 +33,5 @@ pkgs: with pkgs; [
   pqrs
   terragrunt
   tgswitch
+  zstd
 ]
