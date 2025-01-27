@@ -1,11 +1,10 @@
 return {
-  -- TODO: create own colorscheme
   "craftzdog/solarized-osaka.nvim",
   lazy = true,
   priority = 1000,
   opts = function()
     return {
-      transparent = true,
+      transparent = false, -- TODO: set colorscheme for terminal
     }
   end,
 }
