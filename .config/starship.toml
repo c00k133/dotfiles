@@ -190,6 +190,6 @@ description = 'Tells whether dotfiles have changes'
 detect_files = ['.files-ignore']
 detect_folders = ['.files']
 symbol = '!'
-style = 'bold green'
+style = 'bold red'
 format = '\[[$symbol dotfiles]($style)\]'
 disabled = true
