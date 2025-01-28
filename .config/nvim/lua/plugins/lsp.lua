@@ -9,6 +9,7 @@ return {
         "stylua",
 
         -- Shell
+        "bash-language-server",
         "shellcheck",
         "shfmt",
 
