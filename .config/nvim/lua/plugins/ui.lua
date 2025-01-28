@@ -103,4 +103,14 @@ return {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
+
+  -- Neotree
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    config = function()
+      require("neo-tree").setup({
+        close_if_last_window = true,
+      })
+    end,
+  },
 }
