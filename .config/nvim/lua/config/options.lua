@@ -21,3 +21,10 @@ vim.opt.shiftwidth = 4
 
 -- Finding files
 vim.opt.path:append({ "**" })
+
+-- Filetypes
+vim.filetype.add({
+  extension = {
+    j2 = "jinja",
+  },
+})
