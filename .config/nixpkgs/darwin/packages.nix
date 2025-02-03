@@ -23,6 +23,8 @@ pkgs: with pkgs; [
   starship
 
   # Development tools
+  ansible
+  ansible-lint
   aws-vault
   awscli2
   cargo
