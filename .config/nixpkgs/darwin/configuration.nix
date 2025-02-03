@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 let
   # unfree: must be included in `nixpkgs.config.allowUnfreePredicate`
