@@ -14,10 +14,10 @@ vim.opt.smartindent = true
 -- Highlight search text
 vim.opt.hlsearch = true
 
--- Make tabs 4 spaces
+-- Make tabs 2 spaces
 vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 -- Finding files
 vim.opt.path:append({ "**" })
