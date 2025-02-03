@@ -5,6 +5,7 @@ return {
   opts = function()
     return {
       transparent = false, -- TODO: set colorscheme for terminal
+      day_brightness = 0,
     }
   end,
 }
