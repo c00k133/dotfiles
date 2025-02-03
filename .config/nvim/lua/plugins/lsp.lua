@@ -26,6 +26,9 @@ return {
         -- Ansible
         "ansible-language-server",
         "ansible-lint",
+
+        -- Jinja2
+        "djlint",
       })
     end,
   },
