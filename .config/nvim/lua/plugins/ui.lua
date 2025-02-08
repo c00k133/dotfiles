@@ -55,6 +55,36 @@ return {
     keys = {
       { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
       { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
+      -- The defaults in bufferline didn't work out for me, so I followed these rebindings:
+      -- - https://lazyvim-ambitious-devs.phillips.codes/course/chapter-9/#_navigating_between_open_buffers
+      {
+        "L",
+        function()
+          vim.cmd("bnext " .. vim.v.count1)
+        end,
+        desc = "Next buffer",
+      },
+      {
+        "H",
+        function()
+          vim.cmd("bprev " .. vim.v.count1)
+        end,
+        desc = "Previous buffer",
+      },
+      {
+        "]b",
+        function()
+          vim.cmd("bnext " .. vim.v.count1)
+        end,
+        desc = "Next buffer",
+      },
+      {
+        "[b",
+        function()
+          vim.cmd("bprev " .. vim.v.count1)
+        end,
+        desc = "Previous buffer",
+      },
     },
     opts = {
       options = {
