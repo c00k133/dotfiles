@@ -35,6 +35,7 @@ pkgs: with pkgs; [
   nodejs_23  # Latest NodeJS version (2025/01/25), `nodejs` points to `20.18.1`
   pqrs
   terragrunt
+  tflint
   tgswitch
   zstd
 ]
