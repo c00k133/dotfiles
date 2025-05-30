@@ -18,7 +18,6 @@ pkgs: with pkgs; [
   s3cmd
 
   # Terminal theming
-  nerdfonts
   powerline
   starship
 
@@ -32,7 +31,7 @@ pkgs: with pkgs; [
   duckdb
   git
   # localstack  # currently fails...
-  nodejs_23  # Latest NodeJS version (2025/01/25), `nodejs` points to `20.18.1`
+  nodejs_24
   pqrs
   terragrunt
   tflint

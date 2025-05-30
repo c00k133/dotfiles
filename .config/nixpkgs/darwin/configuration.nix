@@ -16,7 +16,7 @@ in {
 
     # Use a custom configuration.nix location.
     # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-    darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
+    darwinConfig = "/Users/${primary-user}/.config/nixpkgs/darwin/configuration.nix";
 
     variables = {
       "EDITOR" = "vim";
@@ -26,16 +26,18 @@ in {
   # TODO: figure out how to configure this in a separate file
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) unfree-package-names;
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
-
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;  # default shell on catalina
 
-  # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
-  system.stateVersion = 4;
+  sysmte = {
+    # Used for backwards compatibility, please read the changelog before changing.
+    # $ darwin-rebuild changelog
+    stateVersion = 4;
+
+    primaryUser = primary-user;
+  };
+
+  fonts.packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   homebrew = {
     # Although nix-darwin complained earlier, this is a higher level configuration.
