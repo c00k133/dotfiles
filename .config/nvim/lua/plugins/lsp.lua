@@ -29,6 +29,9 @@ return {
 
         -- Jinja2
         "djlint",
+
+        -- Markdown
+        "marksman",
       })
     end,
   },
