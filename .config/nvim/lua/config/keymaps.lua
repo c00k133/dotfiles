@@ -4,8 +4,9 @@
 
 -- Many of these keymaps are inspired by devaslife: https://www.youtube.com/watch?v=fFHlfbKVi30
 
-local discipline = require("c00k133.discipline")
-discipline.cowboy()
+-- Disabled, for now
+-- local discipline = require("c00k133.discipline")
+-- discipline.cowboy()
 
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
