@@ -4,6 +4,7 @@ let
   # unfree: must be included in `nixpkgs.config.allowUnfreePredicate`
   unfree-package-names = [];
   unfree-packages = builtins.map (p: pkgs."${p}") unfree-package-names;
+  primary-user = "axelneergaard";
 in {
   environment = {
     # List packages installed in system profile. To search by name, run:
@@ -29,7 +30,7 @@ in {
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;  # default shell on catalina
 
-  sysmte = {
+  system = {
     # Used for backwards compatibility, please read the changelog before changing.
     # $ darwin-rebuild changelog
     stateVersion = 4;
