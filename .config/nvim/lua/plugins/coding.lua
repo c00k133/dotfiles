@@ -16,7 +16,7 @@ return {
         function()
           require("refactoring").select_refactor()
         end,
-        modee = "v",
+        mode = "v",
         noremap = true,
         silent = true,
         expr = false,
