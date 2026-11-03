@@ -1,0 +1,73 @@
+onboarding = false
+
+[theme]
+name = "catppuccin-latte"
+auto_switch = false
+
+# Translated from .tmux.conf. tmux features without a herdr equivalent are noted inline.
+
+[terminal]
+# tmux: split-window -c "#{pane_current_path}" (herdr default)
+new_cwd = "follow"
+
+[keys]
+# tmux: set -g prefix C-Space
+# tmux `bind Space send-prefix` has no herdr action.
+prefix = "ctrl+space"
+
+# tmux: bind s choose-session / bind S choose-tree
+workspace_picker = "prefix+s"
+goto = "prefix+shift+s"
+# Default prefix+s is taken by workspace_picker above.
+settings = "prefix+comma"
+
+# tmux: bind '"' split-window -v / bind % split-window -h
+split_horizontal = ["prefix+minus", 'prefix+"']
+split_vertical = ["prefix+v", "prefix+%"]
+
+# tmux: bind b / C-b previous-window
+previous_tab = ["prefix+p", "prefix+b", "prefix+ctrl+b"]
+# Default prefix+b is taken by previous_tab above.
+toggle_sidebar = "prefix+shift+b"
+
+# tmux vim-tmux-navigator C-\ (last pane). herdr's CLI has no last-pane focus, so it is not vim-aware.
+last_pane = "prefix+backslash"
+
+# tmux vim-tmux-navigator: C-h/j/k/l select-pane, passed through to vim/fzf.
+# Needs vim-nav.sh installed next to this file and jq on PATH.
+[[keys.command]]
+key = "ctrl+h"
+type = "shell"
+command = "$HOME/.config/herdr/vim-nav.sh left ctrl+h"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "shell"
+command = "$HOME/.config/herdr/vim-nav.sh down ctrl+j"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+command = "$HOME/.config/herdr/vim-nav.sh up ctrl+k"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "shell"
+command = "$HOME/.config/herdr/vim-nav.sh right ctrl+l"
+
+# tmux: bind C-l send-keys 'C-l' (clear screen, since ctrl+l now navigates)
+[[keys.command]]
+key = "prefix+ctrl+l"
+type = "shell"
+command = 'env -u HERDR_PANE_ID herdr pane send-keys "$(env -u HERDR_PANE_ID herdr pane current | jq -r .result.pane.pane_id)" ctrl+l'
+
+[ui]
+# tmux: set -g mouse on (herdr default)
+mouse_capture = true
+# tmux-yank: copy selection to the system clipboard (herdr default)
+copy_on_select = true
+
+[experimental]
+# tmux-resurrect @resurrect-capture-pane-contents 'on'.
+# Writes pane scrollback to session-history.json on disk.
+pane_history = true

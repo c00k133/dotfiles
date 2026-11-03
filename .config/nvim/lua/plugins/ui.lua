@@ -1,3 +1,17 @@
+-- Inside herdr (and not a nested tmux), vim-tmux-navigator cannot leave nvim, so move
+-- between nvim windows and hand off to the neighbouring herdr pane at the edge.
+local in_herdr = vim.env.HERDR_PANE_ID ~= nil and vim.env.TMUX == nil
+
+local function herdr_navigate(wincmd, direction)
+  return function()
+    local win = vim.api.nvim_get_current_win()
+    vim.cmd("wincmd " .. wincmd)
+    if vim.api.nvim_get_current_win() == win then
+      vim.system({ "herdr", "pane", "focus", "--pane", vim.env.HERDR_PANE_ID, "--direction", direction })
+    end
+  end
+end
+
 return {
   -- noice
   {
@@ -117,6 +131,10 @@ return {
   -- Tmux integration
   {
     "christoomey/vim-tmux-navigator",
+    -- The plugin's own mappings would replace the keys below when it loads.
+    init = function()
+      vim.g.tmux_navigator_no_mappings = 1
+    end,
     cmd = {
       "TmuxNavigateLeft",
       "TmuxNavigateDown",
@@ -125,12 +143,18 @@ return {
       "TmuxNavigatePrevious",
       "TmuxNavigatorProcessList",
     },
-    keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    keys = in_herdr and {
+      { "<c-h>", herdr_navigate("h", "left") },
+      { "<c-j>", herdr_navigate("j", "down") },
+      { "<c-k>", herdr_navigate("k", "up") },
+      { "<c-l>", herdr_navigate("l", "right") },
+      { "<c-\\>", "<cmd>wincmd p<cr>" },
+    } or {
+      { "<c-h>", "<cmd>TmuxNavigateLeft<cr>" },
+      { "<c-j>", "<cmd>TmuxNavigateDown<cr>" },
+      { "<c-k>", "<cmd>TmuxNavigateUp<cr>" },
+      { "<c-l>", "<cmd>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
     },
   },
 
