@@ -26,12 +26,18 @@ split_horizontal = ["prefix+minus", 'prefix+"']
 split_vertical = ["prefix+v", "prefix+%"]
 
 # tmux: bind b / C-b previous-window
-previous_tab = ["prefix+p", "prefix+b", "prefix+ctrl+b"]
+previous_tab = ["prefix+p", "prefix+ctrl+p", "prefix+n", "prefix+ctrl+n"]
 # Default prefix+b is taken by previous_tab above.
 toggle_sidebar = "prefix+shift+b"
 
 # tmux vim-tmux-navigator C-\ (last pane). herdr's CLI has no last-pane focus, so it is not vim-aware.
 last_pane = "prefix+backslash"
+
+# Navigate mode: j/k pick workspaces (arrows still work), so pane up/down move to ctrl+j/k.
+navigate_workspace_down = ["j", "down"]
+navigate_workspace_up = ["k", "up"]
+navigate_pane_down = "ctrl+j"
+navigate_pane_up = "ctrl+k"
 
 # tmux vim-tmux-navigator: C-h/j/k/l select-pane, passed through to vim/fzf.
 # Needs vim-nav.sh installed next to this file and jq on PATH.
