@@ -1,0 +1,116 @@
+{
+  "version": 3,
+  "workspaces": [
+    {
+      "id": "wN",
+      "custom_name": null,
+      "identity_cwd": "/Users/axelneergaard/src/devcont",
+      "public_pane_numbers": {
+        "1": 1
+      },
+      "next_public_pane_number": 2,
+      "public_tab_numbers": [
+        1
+      ],
+      "next_public_tab_number": 2,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 1
+          },
+          "panes": {
+            "1": {
+              "cwd": "/Users/axelneergaard/src/devcont"
+            }
+          },
+          "zoomed": false,
+          "focused": 1,
+          "root_pane": 1
+        }
+      ],
+      "active_tab": 0
+    },
+    {
+      "id": "wR",
+      "custom_name": "DST-3891",
+      "identity_cwd": "/Users/axelneergaard/src/cujo/lens/lens-DST-3891",
+      "public_pane_numbers": {
+        "2": 1,
+        "3": 4
+      },
+      "next_public_pane_number": 7,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 4,
+      "tabs": [
+        {
+          "custom_name": "lens",
+          "layout": {
+            "Pane": 2
+          },
+          "panes": {
+            "2": {
+              "cwd": "/Users/axelneergaard/src/cujo/lens/lens-DST-3891"
+            }
+          },
+          "zoomed": false,
+          "focused": 2,
+          "root_pane": 2
+        },
+        {
+          "custom_name": "ldl",
+          "layout": {
+            "Pane": 3
+          },
+          "panes": {
+            "3": {
+              "cwd": "/Users/axelneergaard/src/cujo/labs-data-live/labs-data-live"
+            }
+          },
+          "zoomed": false,
+          "focused": 3,
+          "root_pane": 3
+        }
+      ],
+      "active_tab": 0
+    },
+    {
+      "id": "wS",
+      "custom_name": null,
+      "identity_cwd": "/private/tmp/herdr-tmux",
+      "public_pane_numbers": {
+        "15": 12
+      },
+      "next_public_pane_number": 21,
+      "public_tab_numbers": [
+        1
+      ],
+      "next_public_tab_number": 4,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 15
+          },
+          "panes": {
+            "15": {
+              "cwd": "/private/tmp/herdr-tmux"
+            }
+          },
+          "zoomed": false,
+          "focused": 15,
+          "root_pane": 15
+        }
+      ],
+      "active_tab": 0
+    }
+  ],
+  "active": 1,
+  "selected": 1,
+  "sidebar_width": null,
+  "sidebar_section_split": null,
+  "collapsed_space_keys": []
+}

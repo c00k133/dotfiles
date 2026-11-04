@@ -1,6 +1,7 @@
 onboarding = false
 
 [theme]
+# TODO: optimize theme in terminal
 name = "catppuccin-latte"
 auto_switch = false
 

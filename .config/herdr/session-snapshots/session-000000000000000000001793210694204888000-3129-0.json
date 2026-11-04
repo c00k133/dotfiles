@@ -1,0 +1,70 @@
+{
+  "version": 3,
+  "workspaces": [
+    {
+      "id": "wJ",
+      "custom_name": null,
+      "identity_cwd": "/Users/axelneergaard/src/cujo/lens/lens-DST-3865",
+      "public_pane_numbers": {
+        "2": 1
+      },
+      "next_public_pane_number": 5,
+      "public_tab_numbers": [
+        1
+      ],
+      "next_public_tab_number": 2,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 2
+          },
+          "panes": {
+            "2": {
+              "cwd": "/Users/axelneergaard/src/cujo/lens/lens-DST-3865"
+            }
+          },
+          "zoomed": false,
+          "focused": 2,
+          "root_pane": 2
+        }
+      ],
+      "active_tab": 0
+    },
+    {
+      "id": "wM",
+      "custom_name": "DST-4201/deployment",
+      "identity_cwd": "/Users/axelneergaard/src/cujo/deployment-config-env/deployment-config-env-DST-4201",
+      "public_pane_numbers": {
+        "5": 1
+      },
+      "next_public_pane_number": 2,
+      "public_tab_numbers": [
+        1
+      ],
+      "next_public_tab_number": 2,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 5
+          },
+          "panes": {
+            "5": {
+              "cwd": "/Users/axelneergaard/src/cujo/deployment-config-env/deployment-config-env-DST-4201"
+            }
+          },
+          "zoomed": false,
+          "focused": 5,
+          "root_pane": 5
+        }
+      ],
+      "active_tab": 0
+    }
+  ],
+  "active": 0,
+  "selected": 0,
+  "sidebar_width": null,
+  "sidebar_section_split": null,
+  "collapsed_space_keys": []
+}
