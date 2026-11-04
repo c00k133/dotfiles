@@ -72,6 +72,15 @@ command = 'env -u HERDR_PANE_ID herdr pane send-keys "$(env -u HERDR_PANE_ID her
 mouse_capture = true
 # tmux-yank: copy selection to the system clipboard (herdr default)
 copy_on_select = true
+# tmux-like: shared dividers, no outer frame or scrollbars
+pane_outer_borders = false
+pane_gaps = false
+pane_scrollbars = false
+show_agent_labels_on_pane_borders = true
+# tmux: set -g status-position bottom
+tab_bar_position = "bottom"
+# Collapsed sidebar stays compact (default), not hidden.
+sidebar_start_collapsed = true
 
 [experimental]
 # tmux-resurrect @resurrect-capture-pane-contents 'on'.
